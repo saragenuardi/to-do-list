@@ -1,0 +1,18 @@
+h1 {
+    text-align: center;
+    color: rebeccapurple;
+  }
+  
+  
+  .todo {
+    border: 2px black solid;
+    padding: 10px;
+    margin: 5px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+
+  .detail-link {
+
+  }
