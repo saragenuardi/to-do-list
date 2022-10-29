@@ -1,0 +1,44 @@
+h1 {
+    text-align: center;
+    color: rebeccapurple;
+}
+
+
+.todo {
+    border: 2px black solid;
+    padding: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin: 4px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.container {
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.container-add {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.title {
+   margin-left: 380px;
+}
+
+
+.btn {
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+/* .add {
+    display: flex;
+    justify-content: end;
+   
+} */
