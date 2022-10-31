@@ -2,13 +2,28 @@ import { Link } from 'react-router-dom';
 import './List.css';
 import { TodosContext } from '../../App';
 import React from 'react';
+import { useState } from 'react';
+
+
 
 
 function List() {
 
 
+    
+   
+ 
+
+
+
     //per accedere ai dati del context, devo importare il context dentro il componente in cui si vuole utilizzare
     const todosContext = React.useContext(TodosContext);
+
+    const deleteToDo = (id) => {
+        todosContext.setTodos((current) =>
+        current.filter(todos => todos.id !== id)
+        )
+    }
    
     function renderToDos() {
         return todosContext.todos.map((todo) => (
@@ -22,7 +37,8 @@ function List() {
                     <Link className='btn' to={"/detail/" + todo.id } >Dettaglio</Link>
                     {/* Qui uso l'iterpolazione */}
                     <Link className='btn' to={`/edit/${todo.id}`}>Modifica</Link>
-                    <a className=' btn btn-detete' href="">Elimina</a>
+                    <button className=' btn btn-detete' onClick={() => deleteToDo(todo.id)}
+                    >Elimina</button>
                 </div>
             </div>
         ))
