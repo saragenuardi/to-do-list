@@ -31,12 +31,16 @@ function App() {
     /*Il componente principale non ha un percorso ed ha come attributo "index". Esso specifica che questa route è LA route PREDEFINITA per la route padre che è "/".
     Ovviamente se non esiste il cosidetto route padre, e tutti i route sono fratelli, non c'è bisogno di definire l'attributo index. */
 
+    const values = {
+        setTodos,
+        todos
+    }
 
     return (
 
         //Qui utilizzo il provider ( nome variabile + .Provider) che mi permette di "fornire"
         //ogni qualsiasi tipo di dato (in questo caso array) a tutti i componenti sottostanti  
-        <TodosContext.Provider value={todos}>
+        <TodosContext.Provider value={values}>
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<List />} />

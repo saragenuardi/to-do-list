@@ -7,11 +7,11 @@ import { useParams } from 'react-router-dom';
 function Detail() {
 
     //per accedere ai dati del context, devo importare il context dentro il componente in cui si vuole utilizzare
-    const todos = React.useContext(TodosContext);
+    const todosContext = React.useContext(TodosContext);
     const { id } = useParams();
-    const parsedId = parseInt(id)
+    const parsedId = parseInt(id);
 
-    const detailToDo = todos.find(elementToDo => {
+    const detailToDo = todosContext.todos.find(elementToDo => {
         return elementToDo.id === parsedId;
     })
 
