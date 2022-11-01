@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { TodosContext } from '../../App';
-import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import './Create.css';
+import { Link } from 'react-router-dom';
 
 
 function Create() {
@@ -71,23 +72,29 @@ function Create() {
 
 
     return (
-        <div>
-            <h1>questa è la pagina modifica</h1>
+        <div className='container'>
+            <h1>Aggiungi To Do</h1>
             <form onSubmit={handleSubmit}>
                 <div>
+                <div className='form-group'>
                     <label>Nome:</label>
-                    <input type="text" name="name" value={createTodo.name} onChange={handleNameChange} />
+                    <input type="text" className='form-control' name="name" placeholder='Inserisci Nome' value={createTodo.name} onChange={handleNameChange} />
                 </div>
                 <div>
                     <label>Descrizione:</label>
-                    <input type="text" name="description" value={createTodo.description} onChange={handleDescriptionChange} />
+                    <input type="text" className='form-control'  name="description" placeholder='Inserisci Descrizione' value={createTodo.description} onChange={handleDescriptionChange} />
                 </div>
-                <div>
+                <div>  
+                    <input name="done" type="checkbox" className='form-check-label' value={createTodo.done} checked={createTodo.done} onChange={handleDoneChange} />
                     <label htmlFor="done">Fatto</label>
-                    <input name="done" type="checkbox" value={createTodo.done} checked={createTodo.done} onChange={handleDoneChange} />
                 </div>
-                <input type="submit" />
+                <input className='btn btn-primary' type="submit" />
+               
+                </div>
+
+                <Link className='btn btn-dark d-flex justify-content-center m-5' to={"/"}>Torna in liste</Link>
             </form>
+            
         </div>
 
     )

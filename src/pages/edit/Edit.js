@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { TodosContext } from '../../App';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import './Edit.css';
+import { Link } from 'react-router-dom';
 
 
 
@@ -18,7 +20,7 @@ function Edit() {
         return elementToDo.id === parsedId;
     })
 
-  
+
 
     const navigate = useNavigate()
 
@@ -54,10 +56,10 @@ function Edit() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        
+
         const newState = todosContext.todos.map(todo => {
             if (todo.id === parsedId) {
-                return editTodo 
+                return editTodo
             }
             return todo;
         })
@@ -69,22 +71,29 @@ function Edit() {
 
 
     return (
-        <div>
-            <h1>questa è la pagina modifica</h1>
+        <div className='container '>
+            <h1>Modifica To Do</h1>
             <form onSubmit={handleSubmit}>
                 <div>
-                    <label>Nome:</label>
-                    <input type="text" name="name" value={editTodo.name} onChange={handleNameChange} />
+                    <div className='form-group'>
+                        <label >Nome:</label>
+                        <input className='form-control' type="text" name="name" value={editTodo.name} onChange={handleNameChange} />
+                    </div>
+                    <div className='form-group'>
+                        <label>Descrizione:</label>
+                        <input className='form-control' type="text" name="description" value={editTodo.description} onChange={handleDescriptionChange} />
+                    </div>
+                    <div className='form-group'>
+                        <input className='form-check-label' name="done" type="checkbox" value={editTodo.done} checked={editTodo.done} onChange={handleDoneChange} />
+                        <label htmlFor="done">Fatto</label>
+                    </div>
+
+                    <input class="btn btn-primary" type="submit" />
+                    <Link className='btn btn-dark d-flex justify-content-center m-5' to={"/"}>Torna in liste</Link>
+
                 </div>
-                <div>
-                    <label>Descrizione:</label>
-                    <input type="text" name="description" value={editTodo.description} onChange={handleDescriptionChange} />
-                </div>
-                <div>
-                    <label htmlFor="done">Fatto</label>
-                    <input name="done" type="checkbox" value={editTodo.done} checked={editTodo.done} onChange={handleDoneChange} />
-                </div>
-                <input type="submit" />
+
+
             </form>
         </div>
 

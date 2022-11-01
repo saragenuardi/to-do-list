@@ -1,6 +1,7 @@
 import React from 'react';
 import { TodosContext } from '../../App';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import './Detail.css';
 
 
 
@@ -16,11 +17,19 @@ function Detail() {
     })
 
     return (
-        <div>
-            <h1>questa è la pagina dettaglio</h1>
-            <p>{detailToDo.name}</p>
-            <p>{detailToDo.description}</p>
-            <p className='done'>{detailToDo.done === true ? 'Fatto' : 'Non fatto'}</p>
+        <div className='container'>
+            <h1 className='detail-title'>Dettaglio To Do</h1>
+            <div className='todo-detail '>
+                <div className=''> Nome:
+                    <p>{detailToDo.name}</p>
+                </div>
+                <div> Descrizione
+                    <p>{detailToDo.description}</p>
+                </div>
+                <div className='done'> Stato:
+                    <p>{detailToDo.done === true ? 'Fatto' : 'Non fatto'}</p></div>
+            </div>
+            <Link className='btn btn-dark d-flex justify-content-center m-5' to={"/"}>Torna in liste</Link>
         </div>
 
     )
